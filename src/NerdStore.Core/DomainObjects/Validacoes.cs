@@ -2,12 +2,15 @@
 
 namespace NerdStore.Core.DomainObjects
 {
+    //Classe utilizada para validar o estado da entidade
+    //foi criada desta forma pois os nomes dos métodos tornam o código mais legível e descentralizado
     public class Validacoes
     {
         public static void ValidarSeIgual(object object1, object object2, string mensagem)
         {
             if (object1.Equals(object2))
             {
+                //Caso a condição seja satisfeita, é lançada uma exceção de domínio
                 throw new DomainException(mensagem);
             }
         }

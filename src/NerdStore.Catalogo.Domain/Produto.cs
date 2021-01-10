@@ -35,6 +35,10 @@ namespace NerdStore.Catalogo.Domain
             Imagem = imagem;
             Dimensoes = dimensoes;
 
+            
+            //Este método garante que a entidade seja criada com um estado válido
+            //Após o preenchimento das propriedades, é chamado o método validar, caso algumas das propriedades
+            //não estejam em um estado valido, será lançada uma exceção de domínio
             Validar();
         }
 
@@ -73,6 +77,7 @@ namespace NerdStore.Catalogo.Domain
             return QuantidadeEstoque >= quantidade;
         }
 
+        //Método que chama os métodos de validação responsáveis por lançar exceções de domínio
         public void Validar()
         {
             Validacoes.ValidarSeVazio(Nome, "O campo Nome do produto não pode estar vazio");
