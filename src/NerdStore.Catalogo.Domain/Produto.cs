@@ -3,9 +3,14 @@ using NerdStore.Core.DomainObjects;
 
 namespace NerdStore.Catalogo.Domain
 {
+    //É definido que produto é uma entidade e também uma raiz de agragação
+    //É uma raiz de agregação pois ela é a classe principal em relação à classe Categoria
     public class Produto : Entity, IAggregateRoot
     {
+        //É necessária esta propriedade para poder relacionar no banco de dados
         public Guid CategoriaId { get; private set; }
+
+        //É um padrão para uma entidade que os setters sejam privados
         public string Nome { get; private set; }
         public string Descricao { get; private set; }
         public bool Ativo { get; private set; }
@@ -17,6 +22,8 @@ namespace NerdStore.Catalogo.Domain
         public Categoria Categoria { get; private set; }
 
         protected Produto() { }
+
+        //Pelo fato dos setters das propriedades serem privados, é necessário passar os valores necessários via construtor
         public Produto(string nome, string descricao, bool ativo, decimal valor, Guid categoriaId, DateTime dataCadastro, string imagem, Dimensoes dimensoes)
         {
             CategoriaId = categoriaId;
@@ -38,6 +45,8 @@ namespace NerdStore.Catalogo.Domain
         public void AlterarCategoria(Categoria categoria)
         {
             Categoria = categoria;
+
+            //Importante atualizar a propriedade CategoriaIs, pois é ela que faz a referência com o BD de fato
             CategoriaId = categoria.Id;
         }
 
