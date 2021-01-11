@@ -2,6 +2,9 @@
 
 namespace NerdStore.Catalogo.Domain
 {
+    //Esta classe trata-se de um objeto de valor
+    //Objetos de valor agregam valor à uma entidade, neste caso a entidade Produto
+    //Ficam dentro do projeto Domain
     public class Dimensoes
     {
         public decimal Altura { get; private set; }
