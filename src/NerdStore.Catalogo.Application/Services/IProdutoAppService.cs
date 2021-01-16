@@ -5,6 +5,7 @@ using NerdStore.Catalogo.Application.ViewModels;
 
 namespace NerdStore.Catalogo.Application.Services
 {
+    //Essa interface busca atender as necessidades do frontend
     public interface IProdutoAppService : IDisposable
     {
         Task<IEnumerable<ProdutoViewModel>> ObterPorCategoria(int codigo);
