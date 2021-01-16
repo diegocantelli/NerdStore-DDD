@@ -5,6 +5,17 @@ using NerdStore.Catalogo.Domain.Events;
 
 namespace NerdStore.Catalogo.Domain
 {
+    //EstoqueService é um serviço de domínio, utilizado quando é necessário implementar funcionalidades
+    //nas quais as entidades não conseguem resolver por si só
+    //Os métodos definidos dentro de um serviço de domínio DEVEM REPRESENTAR as ações da LINGUAGEM UBÍQUA
+    //A IMPLEMENTAÇÂO assim como sua INTERFACE do serviço de domínio fica dentro da camada DOMAIN
+    //Ex: -> Debitar um estoque
+    // 1 -> Buscar um produto no BD através do repositório que irá devolver uma instância deste produto
+    // 2 -> Com a instância deste produto será feita a operação de debitar estoque, operação esta já definida na 
+    //      entidade de produto
+    // 3 -> Após feito estes passos, o produto com a nova quantidade será persistido no banco
+    //Um serviço de domínio UNE várias operações definidas em classes distintas em um lugar só, para poder
+    //executar uma atividade definida
     public class EstoqueService : IEstoqueService
     {
         private readonly IProdutoRepository _produtoRepository;
