@@ -41,6 +41,8 @@ namespace NerdStore.Catalogo.Domain
             // TODO: Parametrizar a quantidade de estoque baixo
             if (produto.QuantidadeEstoque < 10)
             {
+                //Publica o evento ProdutoAbaixoEstoque, onde a instância passada como parâmetro deve obrigatoriamente
+                //herdar de Event
                 await _bus.PublicarEvento(new ProdutoAbaixoEstoqueEvent(produto.Id, produto.QuantidadeEstoque));
             }
 
