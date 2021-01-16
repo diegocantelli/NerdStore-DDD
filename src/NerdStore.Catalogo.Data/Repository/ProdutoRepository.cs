@@ -8,6 +8,7 @@ using NerdStore.Core.Data;
 
 namespace NerdStore.Catalogo.Data.Repository
 {
+    //Esta classe é a implementação física dos métodos do repositório
     public class ProdutoRepository : IProdutoRepository
     {
         private readonly CatalogoContext _context;

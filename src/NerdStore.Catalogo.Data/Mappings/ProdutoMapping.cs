@@ -4,6 +4,7 @@ using NerdStore.Catalogo.Domain;
 
 namespace NerdStore.Catalogo.Data.Mappings
 {
+    //Criando o mapeamento no BD para a tabela produto
     public class ProdutoMapping : IEntityTypeConfiguration<Produto>
     {
         public void Configure(EntityTypeBuilder<Produto> builder)

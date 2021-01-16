@@ -5,6 +5,8 @@ using NerdStore.Core.Data;
 
 namespace NerdStore.Catalogo.Domain
 {
+    //A interface IProdutoRespositorio implementa os métodos de IRepository, onde o tipo passado como parâmetro
+    //para a classe obrigatoriamente deve ser do tipo agregateRoot
     public interface IProdutoRepository : IRepository<Produto>
     {
         Task<IEnumerable<Produto>> ObterTodos();

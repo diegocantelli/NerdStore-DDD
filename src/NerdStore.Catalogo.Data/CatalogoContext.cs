@@ -7,6 +7,7 @@ using NerdStore.Core.Data;
 
 namespace NerdStore.Catalogo.Data
 {
+    //O acesso à dados fica em um projeto diferente
     public class CatalogoContext : DbContext, IUnitOfWork
     {
         public CatalogoContext(DbContextOptions<CatalogoContext> options)
@@ -17,6 +18,8 @@ namespace NerdStore.Catalogo.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //pega todas as colunas que são do tipo string e as mapeia para serem criadas como varchar(100)
+            //isso impede a criação de colunas do tipo string como varchar(max)
             foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
                 e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
                 property.Relational().ColumnType = "varchar(100)";

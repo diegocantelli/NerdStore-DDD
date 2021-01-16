@@ -9,8 +9,10 @@ namespace NerdStore.Catalogo.Domain
         public int Codigo { get; private set; }
 
         // EF Relation
+        //Indica para o EF que uma Categoria possui muitos produtos
         public ICollection<Produto> Produtos { get; set; }
 
+        //É necessário deixar um construtor sem parâmetros como protected, para não ter problemas com o EF
         protected Categoria() { }
 
         public Categoria(string nome, int codigo)
