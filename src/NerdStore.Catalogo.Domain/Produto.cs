@@ -24,6 +24,7 @@ namespace NerdStore.Catalogo.Domain
 
         public Categoria Categoria { get; private set; }
 
+        //é necessário ter um construtor padrão para o entity framework
         protected Produto() { }
 
         //Pelo fato dos setters das propriedades serem privados, é necessário passar os valores necessários via construtor

@@ -11,6 +11,8 @@ namespace NerdStore.WebApp.MVC.Setup
 {
     public static class DependencyInjection
     {
+        //foi criado um extension method de Iservicecollecion para fazer as injeções de dependência
+        //desta forma fica apartado da classe startup, deixando o código mais limpo
         public static void RegisterServices(this IServiceCollection services)
         {
             // Domain Bus (Mediator)

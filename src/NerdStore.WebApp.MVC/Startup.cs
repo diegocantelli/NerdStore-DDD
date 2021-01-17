@@ -47,10 +47,13 @@ namespace NerdStore.WebApp.MVC
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            //adicionando a injeção de dependência do automapper
+            //Os parâmetros indicam de onde o automapper deve buscar as configurações para fazer o mapeamento
             services.AddAutoMapper(typeof(DomainToViewModelMappingProfile), typeof(ViewModelToDomainMappingProfile));
 
             services.AddMediatR(typeof(Startup));
 
+            //adiciona as injeções de dependência necessárias numa linha só
             services.RegisterServices();
         }
 
